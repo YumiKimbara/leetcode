@@ -26,3 +26,32 @@ MVCCとは、Multi-Version Concurrency Controlの略で、複数のトランザ�
 一方、locksは、トランザクションが実行中に他のトランザクションによる競合を回避するために使用される技術です。ロックは、トランザクションがアクセスするデータに対して設定され、他のトランザクションが同じデータにアクセスできないようにします。ロックは、共有ロックと排他ロックの2種類があります。共有ロックは、他のトランザクションがデータを読み取ることができるが、書き込みはできないようにするもので、排他ロックは、他のトランザクションがデータにアクセスできないようにするものです。ロックを使用することで、トランザクションの一貫性を維持することができますが、ロックが長時間維持される場合、パフォーマンスが低下する可能性があります。
 
 ## What is IaaS/PaaS/SaaS?
+
+### English Summary
+Cloud comuting has three main service models: IaaS, PaaS, and SaaS
+
+### 日本語解説
+クラウドコンピューティングの3つの主要なサービスモデルです。
+
+- IaaS (Infrastructure as a Service)
+IaaSは、ハードウェア（サーバー、ストレージ、ネットワークなど）の仮想化されたインフラストラクチャを提供するサービスです。つまり、IaaSプロバイダは、ユーザーに対して仮想マシン（VM）やストレージなどのリソースを提供し、それらを利用してアプリケーションやサービスを実行することができます。
+- PaaS (Platform as a Service)
+PaaSは、アプリケーションやサービスを開発するためのプラットフォームを提供するサービスです。PaaSプロバイダは、ユーザーに対して開発に必要なプラットフォームやツール（プログラミング言語、フレームワーク、データベース、ウェブサーバーなど）を提供し、それらを利用してアプリケーションを開発することができます。
+- SaaS (Software as a Service)
+SaaSは、アプリケーションやサービスを提供するための完全なソフトウェアソリューションを提供するサービスです。つまり、SaaSプロバイダは、ユーザーに対して完全なアプリケーション（電子メール、CRM、プロジェクト管理など）を提供し、それを利用して業務を行うことができます。
+
+## What is SSO (Single Sign-On)?
+
+### English Summary
+Basically, Single Sign-On (SSO) is an authentication scheme. It allows
+a user to log in to different systems using a single ID.
+
+### 日本語解説
+SSO（Single Sign-On）は、ユーザーが複数のアプリケーションやシステムに対して同じ認証情報を使って1回のログインでアクセスできるようにする認証技術のことです。ログインプロセスが簡素化され、ユーザーが1つの認証情報を使用するため、パスワードの再利用や脆弱性が減少し、不正アクセスのリスクが低くなります。(例: google, facebook, githubなどのログイン)
+
+## How to store passwords safely in the database?
+
+## English Summary
+“a salt is a unique, randomly
+generated string that is added to each password as part of the hashing
+process. password will be hashed and stored with salt. salt is the good way to store password.
