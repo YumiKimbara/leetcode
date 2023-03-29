@@ -51,7 +51,69 @@ SSO（Single Sign-On）は、ユーザーが複数のアプリケーションや
 
 ## How to store passwords safely in the database?
 
-## English Summary
+### English Summary
 “a salt is a unique, randomly
 generated string that is added to each password as part of the hashing
 process. password will be hashed and stored with salt. salt is the good way to store password.
+
+##　How does HTTPS work?
+
+### English Summary
+- The client (browser) and the server establish a TCP
+connection.
+- The client sends the request to the server with cipher suites and TLS. The server will send response, and send SSL certificate(contians public key, host name, expiry dates), and clients validates the certificate.
+- The client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key.
+- Both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
+
+### 日本語解説
+Hypertext Transfer Protocol Secure（HTTPS）は、Hypertext Transfer Protocol（HTTP）の拡張機能です。HTTPSは、Transport Layer Security（TLS）を使用して暗号化されたデータを送信します。オンライン上でデータがハイジャックされた場合、ハイジャッカーが受け取るのはバイナリコードだけです。つまり、HTTPSを使用することで、データが安全に転送され、第三者による盗聴や改ざんが防止されます。
+
+## How does Twitter work?
+
+### English summary
+
+#### The life of a Tweet
+- A tweet comes in through the Write API.
+- The Write API routes the request to the Fanout service. (Fanout: transaction to send information to the multiple nodes. For example, when you tweet something, it will be send to all followers)
+- The Fanout service does a lot of processing and stores them in the
+Redis cache. (Redis: open source memory database)
+- The Timeline service is used to find the Redis server that has the
+home timeline on it.
+- A user pulls their home timeline through the Timeline service.
+#### Search & Discovery
+- Ingester annotates and tokenizes Tweets so the data can be indexed. (Ingester: will collect data from multiple sources.)
+- Earlybird will store search index. (Earlybird: A distributed processing framework for processing large amounts of data in real time that Twitter developed.)
+- Blender creates the search and discovery timelines. (Blender: "Blender" is a distributed processing framework developed by Twitter for acquiring and integrating data from multiple data sources.)
+#### Push Compute
+- HTTP push/Mobile push: show the notification updates.
+
+### 日本語解説
+- Fanout
+ある情報を複数のノードに配信する処理を指します。一般的には、メッセージキューの機能を利用して、あるメッセージを送信したノードから別のノードに対してメッセージを配信することが多いです。例えば、Twitterのタイムラインにツイートを配信する際に、フォロワーの全員に通知する処理が「Fanout」と呼ばれることがあります。
+- Ingester
+複数のソースからデータを収集し、処理可能な形に変換する処理を指します。データを処理する際に必要な前処理（例えば、データの正規化やフィルタリングなど）を行うことが多いです。例えば、ニュースサイトで複数のニュース配信元から情報を収集し、それを一元化して処理する処理が「Ingester」と呼ばれることがあります。
+- Redis
+オープンソースのインメモリデータベースです。高速な処理が可能であり、キャッシュやセッション管理などの用途でよく利用されます。また、データ構造をサポートしているため、キューやリスト、セットなどのデータを効率的に処理することができます。
+- Earlybird
+Twitterが開発した、リアルタイムで大量のデータを処理するための分散処理フレームワークです。ストリーミングデータの処理に特化しており、高いスループットを実現することができます。
+- Blender
+「Blender」とは、Twitterが開発した、複数のデータソースからデータを取得し、統合するための分散処理フレームワークです。複数のデータソースからデータを収集し、それを統合することで、より豊富な情報を提供することができます。
+
+## What is the difference between Process and Thread?
+
+### English summary
+Program is a collection of codes that will be excuted on the computer. Process is a executable unit. For example, word, excel, chrome, memo app can be each process, and can be excuted at the same time(this will be called as multi process). Each process will not share same memory, so processes will not interfere with each other. Thread is a synchronizing excutable unit in the process. Single thread process means the process that holds only one thread. Multi thread process means the process that holds multiple threads. Multi thread will simplify the synchronizing transaction.
+
+- A Program is an executable file containing a set of
+instructions and passively stored on disk. One program can have
+multiple processes. For example, the Chrome browser creates a
+different process for every single tab.
+- A Process means a program is in execution. When a program is loaded
+into the memory and becomes active, the program becomes a
+process. The process requires some essential resources such as
+registers, program counter, and stack.
+- A Thread is the smallest unit of execution within a process.
+
+## Interview Question: design Google Docs
+
+### English Summary
