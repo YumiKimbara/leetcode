@@ -117,3 +117,19 @@ registers, program counter, and stack.
 ## Interview Question: design Google Docs
 
 ### English Summary
+Google docs uses OT for real-time conflict resolution.
+
+OT: OT is an algorithm used in distributed systems to avoid conflicts and synchronize editing when multiple users are editing a shared document simultaneously.
+
+### 日本語解説
+
+OT、DS、CRDTは、分散システムや共有編集などの分野で使用される技術/アルゴリズムです。以下にそれぞれの技術/アルゴリズムについて説明します。
+
+OT (Operational Transformation)
+OTは、分散システムにおいて複数のユーザーが同時に共有編集を行う場合に、競合を回避し、編集内容を一致させるために使用されるアルゴリズムです。編集操作を分解し、その操作を反映する前後の文書の状態を比較して、差分を計算して同期を取ることで、編集の競合を回避します。OTは、Google DocsやEtherpadなどの共同編集ツールで使用されています。
+
+DS (Distributed Systems)
+DSは、複数の独立したコンピューターがネットワークを介して相互に通信し、協調して動作するシステムのことです。DSは、複数のノードがネットワークを介して相互に通信し、共有リソースを管理することで、高可用性やスケーラビリティなどの利点を持ちます。DSは、インターネットや分散データベース、P2Pネットワーク、クラウドコンピューティングなど、多くの分野で使用されています。
+
+CRDT (Conflict-free Replicated Data Type)
+CRDTは、複数のノードが同じデータを編集する場合に、競合を回避し、編集内容を一致させるために使用されるデータ構造のことです。CRDTは、同期された複数のコピーがあっても、競合を回避し、編集内容を一致させることができます。CRDTは、GoogleのグローバルドキュメントストレージシステムSpannerや、RiakやCassandraといった分散データベースで使用されています。
