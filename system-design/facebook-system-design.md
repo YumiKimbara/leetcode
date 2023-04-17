@@ -8,6 +8,7 @@
 
 - Is data entities(Data models) something like interface of TypeScript?
 - Store Normalized
+  -> 例としてReduxで深いネストを持つstate管理のベストプラクティスの一つで、データを平坦にして(Normalizing)管理する。深い
 - Long Polling
 - SSE(ServerSideEvents?)
 - Network Performance(gzip, brottle, webp)
