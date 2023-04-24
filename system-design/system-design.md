@@ -72,3 +72,16 @@ educative.io-Grokking-the-System-Design-educative.io.pdf
 ### Data Partitioning and Replication
 
 - To scale out our DB, we need to partition it so that it can store information about billions of URLs.
+
+### Cache
+
+- We can cache URLs that are frequently accessed
+
+### Load Balancer (LB)
+
+### Purging or DB cleanup
+
+## Designing Pastebin
+
+- Pastebin like services enable users to store plain text or images over the network (typically the Internet)
+  and generate unique URLs to access the uploaded data.
